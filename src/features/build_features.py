@@ -97,19 +97,19 @@ def features_build(indir,outdir,output):
     :param: output: whether this function output the table as a csv file or not, 1 means output, 0 means not
     '''
     entries = os.listdir(indir)
-    features_name = ["valid_package_rate","peaks_gap","peaks_number","max_prominence"]
+    features_name = ["valid_package_rate","peaks_gap","peaks_number"]
     feat1 = extract_valid_package_rate(entries,indir)
     feat2 = extract_peaks_gap(entries,indir)
     feat3 = extract_peaks_number(entries,indir)
-    feat4 = extract_max_prominence(entries,indir)
+    #feat4 = extract_max_prominence(entries,indir)
     label = []
     for i in entries:
         if "live" in i:
             label.append(1)
         if "streaming" in i:
             label.append(0)
-    data_tuples = list(zip(feat1,feat2,feat3,feat4,label))
-    tab = pd.DataFrame(data_tuples, columns=['valid_package_rate','peaks_gap','peaks_number',"max_prominence",'data_label'])
+    data_tuples = list(zip(feat1,feat2,feat3,label))
+    tab = pd.DataFrame(data_tuples, columns=['valid_package_rate','peaks_gap','peaks_number','data_label'])
     tab["valid_package_rate"] = tab["valid_package_rate"].fillna(1)
     if output == 1:
         tab.to_csv (outdir+'/features.csv', index = False, header=True)
