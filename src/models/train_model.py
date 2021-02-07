@@ -17,26 +17,55 @@ from sklearn.ensemble import RandomForestClassifier
 import pickle
 import json
 def svc_model(X_train, y_train, gamma_value):
+    '''
+    return trained svc model. 
+    :param: X_train: a list contains all names of network-stats records.
+    :param: y_train: file directory where raw data stored.
+    :param: gamma_value:the gamma value used for svc model.
+    '''
     clf = svm.SVC(gamma = "scale")
     clf.fit(X_train, y_train)
     return clf
 
 def linear_svc_model(X_train,y_train):
+    '''
+    return trained linear svc model. 
+    :param: X_train: a list contains all names of network-stats records.
+    :param: y_train: file directory where raw data stored.
+    '''
     clf = svm.LinearSVC()
     clf.fit(X_train, y_train)
     return clf
 
 def kneighbors_model(X_train,y_train,n_neighbors):
+    '''
+    return trained KNNeighbors model. 
+    :param: X_train: a list contains all names of network-stats records.
+    :param: y_train: file directory where raw data stored.
+    :param: n_neighbors:the n_neighbors value used for KNNeighbors model.
+    '''
     clf = KNeighborsClassifier(n_neighbors=3)
     clf.fit(X_train, y_train)
     return clf
         
 def logistic_model(X_train,y_train,solver_method):
+    '''
+    return trained logistic model. 
+    :param: X_train: a list contains all names of network-stats records.
+    :param: y_train: file directory where raw data stored.
+    :param: solver_method:the solver value used for logistic model.
+    '''
     clf = LogisticRegression(solver = 'lbfgs')
     clf.fit(X_train, y_train)
     return clf
 
 def random_forest_model(X_train,y_train,estimators_num):
+    '''
+    return trained random forest model. 
+    :param: X_train: a list contains all names of network-stats records.
+    :param: y_train: file directory where raw data stored.
+    :param: estimators_num:the estimators value used for random forest model.
+    '''
     clf = RandomForestClassifier(n_estimators = 100)
     clf.fit(X_train, y_train)
     return clf
@@ -45,11 +74,12 @@ def random_forest_model(X_train,y_train,estimators_num):
 def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     '''
     return a trained model with a json file contains report of this model.
-    :param: indir: file directory where extracted features stored
-    :param: outdir: file directory where output of this funcition stored
-    :param: testsize: the portion of train dataset used for validation
-    :param: randomstate: the randomstate number to random split train and valid set
-    :param: c: the c value for logistic regression classifier
+    :param: indir: file directory where extracted features stored.
+    :param: outdir: file directory where output of this funcition stored.
+    :param: testsize: the portion of train dataset used for validation.
+    :param: randomstate: the randomstate number to random split train and valid set.
+    :param: method: the classifier name used for training.
+    :param: method_parameters: the parameter used for training.
     '''
     df=pd.read_csv(indir)
     features_name = ["valid_package_rate","peaks_gap","peaks_number","max_prominence"]

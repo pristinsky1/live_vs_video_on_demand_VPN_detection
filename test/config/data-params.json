@@ -1,4 +1,4 @@
 {
     "indir":"./test/testdata",
-    "outdir":"./data/out"
+    "outdir":"./test/out"
 }

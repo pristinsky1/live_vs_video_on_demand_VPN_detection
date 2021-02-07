@@ -1,7 +1,8 @@
 {
-    "indir":"./data/out/features.csv",
-    "outdir":"./data/out",
+    "indir":"./test/out/features.csv",
+    "outdir":"./test/out",
     "testsize":0.2,
-    "randomstate":62,
-    "c":10
+    "randomstate":125,
+    "method":"Random_Forest",
+    "method_parameters":"scale"
 }

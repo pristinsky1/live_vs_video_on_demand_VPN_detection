@@ -1,1 +1,0 @@
-{"Using Features": "valid_package_rate, peaks_gap, peaks_number, max_prominence", "Using Classifier": "Random_Forest", "Train Accuracy": "1.0", "Valid Accuracy": "1.0", "Validation Set True Negative": "21", "Validation Set False Positive": "0", "Validation Set False Negative": "0", "Validation Set True Positive": "33"}
