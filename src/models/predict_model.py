@@ -28,6 +28,8 @@ def predict_model(indir,indir2, outdir):
     :param: outdir: file directory where generated predictions stored
     '''
     filename = os.path.join(indir, 'model.joblib')
+    filename2 = os.path.join(indir, 'ori_table.csv')
+    df2=pd.read_csv(filename2)
     loaded_model = pickle.load(open(filename, 'rb'))
     df = features_build(indir2,outdir,0)
     features_name = ["valid_package_rate","peaks_gap","peaks_number","max_prominence"]
@@ -37,9 +39,10 @@ def predict_model(indir,indir2, outdir):
     df['predictions']=predictions
     y_true=df['data_label']
     y_pred=df['predictions']
-    df['data_label']=["live" if i == 1 else "video" for i in df['data_label']]
-    df['predictions']=["live" if i == 1 else "video" for i in df['predictions']]
-    df.to_csv (outdir+'/predictions.csv', index = False, header=True)
+    df['data_label']=["live" if i == 1 else "streaming" for i in df['data_label']]
+    df['predictions']=["live" if i == 1 else "streaming" for i in df['predictions']]
+    df2['predictions']=df['predictions']
+    df2.to_csv (outdir+'/predictions.csv', index = False, header=True)
     model_report={}
     model_report["Using Features"]='valid_package_rate, peaks_gap, peaks_number, max_prominence'
     model_report["Test Accuracy"]= str(accuracy_score(y_true,y_pred))
