@@ -28,6 +28,6 @@ Since we are predicting a binary result of whether the file is VOD or live strea
 
 ![First Image](https://github.com/pristinsky1/live_vs_video_on_demand_VPN_detection/blob/gh-pages/newplot%20(1)%20(1).png)
 
-![Temp](newplot (1) (1).png)
+![Temp](newplot%20(1)%20(1).png)
 
 https://pristinsky1.github.io/live_vs_video_on_demand_VPN_detection/
