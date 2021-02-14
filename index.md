@@ -3,8 +3,12 @@
   Due to the variety, affordability and convenience of online video streaming, there are more subscribers than ever to video streaming platforms. Moreover, the decreased operation of non-essential businesses and increase in the number of people working from home in this past year has further compounded this effect. More people are streaming live lectures, sports, news, and video calls via the internet at home today than we have ever seen before. Internet Service Providers, such as Viasat, are tasked with optimizing  internet connections and tailoring their allocation of resources to fit each unique customer’s needs. With this increase in internet activity, it would be especially beneficial for Viasat to understand what issues arise when customers stream various forms of vide - specifically live video or video on demand!
 ## Data Cleaning
 - snippet of network stats dataframe 
-- what the data looks like
 - explain the columns 
+
+For a 5-minute data chunk of live video, we can see that the spikes are sporadic with data coming in right away without any buffers.
+![Packet_Download_Size_Live](newplot%20(1)%20(1).png)
+For a 5-minute data chunk of video on demand, we can see that the spikes are buffering and the data coming in roughly every 10 seconds.
+![Packet_Download_Size_VOD](newplot%20(2)%20(1).png)
 
 ## Feature Extraction & Analysis
   The internet data that we have collected consists of the number of packets and bytes being uploaded and downloaded across a connection. A connection consists of the source and destination IP addresses and ports.With this information, we can potentially find significant features that are key identifiers of internet activity. Using this data, we can look at the flow of packets and bytes sent back and forth over time between the user and destination. Through these findings, we plan to create a machine learning model to predict if a user is streaming live or pre-uploaded video.
@@ -26,9 +30,5 @@ With the features we have extracted to distinguish live streaming from VOD, we c
 - accuracy/precision scores
 
 ## Future Work 
-
-![Packet_Download_Size_Live](newplot%20(1)%20(1).png)
-
-![Packet_Download_Size_VOD](newplot%20(2)%20(1).png)
 
 https://pristinsky1.github.io/live_vs_video_on_demand_VPN_detection/
