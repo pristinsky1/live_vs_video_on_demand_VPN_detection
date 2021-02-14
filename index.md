@@ -7,6 +7,7 @@
 
 For a 5-minute data chunk of live video, we can see that the spikes are sporadic with data coming in right away without any buffers.
 ![Packet_Download_Size_Live](newplot%20(1)%20(1).png)
+
 For a 5-minute data chunk of video on demand, we can see that the spikes are buffering and the data coming in roughly every 10 seconds.
 ![Packet_Download_Size_VOD](newplot%20(2)%20(1).png)
 
