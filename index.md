@@ -26,7 +26,6 @@ Since we are predicting a binary result of whether the file is VOD or live strea
 ## Future Work 
 
 
-{% include_relative newplot (1) (1).png}
 
 
 
