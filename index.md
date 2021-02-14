@@ -33,5 +33,3 @@ With the features we have extracted to distinguish live streaming from VOD, we c
 - accuracy/precision scores
 
 ## Future Work 
-
-https://pristinsky1.github.io/live_vs_video_on_demand_VPN_detection/
