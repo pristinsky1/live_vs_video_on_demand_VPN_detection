@@ -14,10 +14,7 @@ When running network-stats to collect data, this is what the dataset looks with 
 
 &ensp; Similar to other common approaches to analyze internet network data, we have chosen to look for statistical differences between the flow of packets across a network for live video streaming and vod. The graphs below look at the number of packets sent across a network over time for both twitch live and twitch uploaded videos.
 
-For a 5-minute data chunk of live video, we can see that the spikes are sporadic with data coming in right away without any buffers.
 ![Packet_Download_Size_Live](newplot%20(1)%20(1).png)
-
-For a 5-minute data chunk of video on demand, we can see that the spikes are buffering and the data coming in roughly every 10 seconds.
 ![Packet_Download_Size_VOD](newplot%20(2)%20(1).png)
 
 &ensp; When looking at the graphs above a few differences are immediately apparent. First, we can see that the live video has a denser graph with more packets coming in more frequently. On the other hand, the vod has more time between each spike but the magnitude of packets coming in at a time is larger. To quantify this key difference, we can take the ratio of time packets are being sent to the time packets are not being sent (packet size is 0). This will tell us how much time during the viewing of the video no packets were being sent from the destination to the user.
