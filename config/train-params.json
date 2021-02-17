@@ -3,6 +3,6 @@
     "outdir":"./data/out",
     "testsize":0.2,
     "randomstate":125,
-    "method":"Logistic",
+    "method":"Random_Forest",
     "method_parameters":"scale"
 }

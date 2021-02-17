@@ -102,7 +102,7 @@ def spectral_features(entries, raw_path):
         fs = 0.5
         num_windows = 3
         f1, Pxx_den1 = signal.welch(s1, fs, nperseg=len(s1)/num_windows)
-        peaks1, properties1 = signal.find_peaks(np.sqrt(Pxx_den1), prominence=0.01)
+        peaks1, properties1 = signal.find_peaks(np.sqrt(Pxx_den1), prominence=0.001)
         max_prominence_feature1 = properties1['prominences'].max()
         # Some interesting features
         max_prom_norm1 = max_prominence_feature1/np.mean(np.sqrt(Pxx_den1))
@@ -134,6 +134,7 @@ def features_build(indir,outdir,output):
     feat6 = spectral_features(entries,indir)[2]
     feat7 = spectral_features(entries,indir)[3]
     label = []
+    
     for i in entries:
         if "live" in i:
             label.append(1)

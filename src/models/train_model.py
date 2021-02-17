@@ -16,6 +16,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 import pickle
 import json
+from matplotlib import pyplot as plt
 def svc_model(X_train, y_train, gamma_value):
     '''
     return trained svc model. 
@@ -121,10 +122,10 @@ def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     model_report["Validation Set False Negative"]=str(fn)
     model_report["Validation Set True Positive"]=str(tp)
     
-    importance = clf.coef_
+    importance = clf.feature_importances_
     # summarize feature importance
-    print(importance)
-        
+    plt.barh(features_name, importance) 
+    
     filename = os.path.join(outdir, 'model.joblib')
     pickle.dump(clf, open(filename, 'wb'))
     filename2 = os.path.join(outdir, 'training_report.json')
