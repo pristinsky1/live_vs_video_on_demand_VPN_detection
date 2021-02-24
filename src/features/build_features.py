@@ -89,17 +89,30 @@ def extract_max_prominence(entries,raw_path):
         max_prominence_feature.append(max_prominence)
     return max_prominence_feature
 
+def extended_2to1(df):
+    df = df[['packet_times', 'packet_sizes', 'packet_dirs']]
+    df = df.apply(lambda x: x.str.split(';').explode())
+    df = df.loc[df['packet_dirs'] == '2'].reset_index() 
+    df = df.dropna(subset=['packet_sizes'])
+    df['packet_sizes'] = df['packet_sizes'].astype(int)
+    return df
+    
+    
+
+
 def spectral_features(entries, raw_path):
     max_prom_norm, peak_0p1Hz_norm, peak_0p2Hz_norm, pct_zeros = [], [], [], []
     for i in entries:
         temp = raw_path + "/" + i
         df=pd.read_csv(temp, index_col=0).reset_index()
+        print(i)
         #working with dataset #1
-        df1 = df[['Time', '2->1Bytes']].set_index('Time')
-        df1.index = pd.to_datetime(df1.index,unit='s')
-        df1 = df1.resample('2s').sum()
-        s1 = df1['2->1Bytes']/1e6
-        fs = 0.5
+        df1 = extended_2to1(df)
+        df1 = df1[['packet_times', 'packet_sizes']].set_index('packet_times')
+        df1.index = pd.to_datetime(df1.index,unit='ms')
+        df1 = df1.resample('200ms').sum()
+        s1 = df1['packet_sizes']/1e6    
+        fs = 5
         num_windows = 3
         f1, Pxx_den1 = signal.welch(s1, fs, nperseg=len(s1)/num_windows)
         peaks1, properties1 = signal.find_peaks(np.sqrt(Pxx_den1), prominence=0.001)

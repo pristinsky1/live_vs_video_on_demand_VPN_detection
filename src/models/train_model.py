@@ -124,7 +124,7 @@ def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     
     importance = clf.feature_importances_
     # summarize feature importance
-    plt.barh(features_name, importance) 
+    print(importance)
     
     filename = os.path.join(outdir, 'model.joblib')
     pickle.dump(clf, open(filename, 'wb'))
