@@ -23,7 +23,7 @@ def svc_model(X_train, y_train, gamma_value):
     :param: y_train: file directory where raw data stored.
     :param: gamma_value:the gamma value used for svc model.
     '''
-    clf = svm.SVC(gamma = "scale")
+    clf = svm.SVC(gamma = gamma_value)
     clf.fit(X_train, y_train)
     return clf
 
@@ -37,14 +37,14 @@ def linear_svc_model(X_train,y_train):
     clf.fit(X_train, y_train)
     return clf
 
-def kneighbors_model(X_train,y_train,n_neighbors):
+def kneighbors_model(X_train,y_train,n_neighbor):
     '''
     return trained KNNeighbors model. 
     :param: X_train: a list contains all names of network-stats records.
     :param: y_train: file directory where raw data stored.
     :param: n_neighbors:the n_neighbors value used for KNNeighbors model.
     '''
-    clf = KNeighborsClassifier(n_neighbors=3)
+    clf = KNeighborsClassifier(n_neighbors=n_neighbor)
     clf.fit(X_train, y_train)
     return clf
         
@@ -55,7 +55,7 @@ def logistic_model(X_train,y_train,solver_method):
     :param: y_train: file directory where raw data stored.
     :param: solver_method:the solver value used for logistic model.
     '''
-    clf = LogisticRegression(solver = 'lbfgs')
+    clf = LogisticRegression(solver = solver_method)
     clf.fit(X_train, y_train)
     return clf
 
@@ -66,7 +66,7 @@ def random_forest_model(X_train,y_train,estimators_num):
     :param: y_train: file directory where raw data stored.
     :param: estimators_num:the estimators value used for random forest model.
     '''
-    clf = RandomForestClassifier(n_estimators = 100)
+    clf = RandomForestClassifier(n_estimators = estimators_num)
     clf.fit(X_train, y_train)
     return clf
 
@@ -120,6 +120,14 @@ def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     model_report["Validation Set False Positive"]=str(fp)
     model_report["Validation Set False Negative"]=str(fn)
     model_report["Validation Set True Positive"]=str(tp)
+<<<<<<< Updated upstream
+=======
+    
+    #importance = clf.feature_importances_
+    # summarize feature importance
+    #print(importance)
+    
+>>>>>>> Stashed changes
     filename = os.path.join(outdir, 'model.joblib')
     pickle.dump(clf, open(filename, 'wb'))
     filename2 = os.path.join(outdir, 'training_report.json')

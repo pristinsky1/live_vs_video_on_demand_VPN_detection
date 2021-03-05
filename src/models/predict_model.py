@@ -28,39 +28,15 @@ def predict_model(indir,indir2, outdir):
     :param: outdir: file directory where generated predictions stored
     '''
     filename = os.path.join(indir, 'model.joblib')
-    filename2 = os.path.join(indir, 'ori_table.csv')
-    df2=pd.read_csv(filename2)
     loaded_model = pickle.load(open(filename, 'rb'))
-    df = features_build(indir2,outdir,0)
-    features_name = ["valid_package_rate","peaks_gap","peaks_number"]
-    y = np.array(df["data_label"])
-    x = np.array(df[features_name])
-    predictions = loaded_model.predict(x)
+    df = features_build(indir2,outdir,2)
+    features_name = ["valid_package_rate,peaks_gap,peaks_number,max_prom_norm, peak_0p1Hz_norm, peak_0p2Hz_norm, pct_zeros"]
+    predictions = loaded_model.predict(df)
     df['predictions']=predictions
-    y_true=df['data_label']
-    y_pred=df['predictions']
-    df['data_label']=["live" if i == 1 else "streaming" for i in df['data_label']]
     df['predictions']=["live" if i == 1 else "streaming" for i in df['predictions']]
+    df2=pd.DataFrame()
+    entries = os.listdir(indir2)
+    df2['file_name']=entries
     df2['predictions']=df['predictions']
     df2.to_csv (outdir+'/predictions.csv', index = False, header=True)
-    model_report={}
-    model_report["Using Features"]='valid_package_rate, peaks_gap, peaks_number'
-    model_report["Test Accuracy"]= str(accuracy_score(y_true,y_pred))
-    tn, fp, fn, tp=0,0,0,0
-    for i in np.arange(len(y_true)):
-        if y_true[i]==0 and y_pred[i]==0:
-            tn+=1
-        if y_true[i]==1 and y_pred[i]==0:
-            fp+=1
-        if y_true[i]==0 and y_pred[i]==1:
-            fn+=1
-        if y_true[i]==1 and y_pred[i]==1:
-            tp+=1
-    model_report["Validation Set True Negative"]=str(tn)
-    model_report["Validation Set False Positive"]=str(fp)
-    model_report["Validation Set False Negative"]=str(fn)
-    model_report["Validation Set True Positive"]=str(tp)
-    filename2 = os.path.join(outdir, 'predict_report.json')
-    with open(filename2, "w") as outfile:  
-        json.dump(model_report, outfile)
     
