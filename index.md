@@ -1,6 +1,6 @@
 
 
-## Abstract
+## Live vs. Video on Demand inside VPN Detection
 &ensp; Due to the variety, affordability and convenience of online video streaming, there are more subscribers than ever to video streaming platforms. Moreover, the decreased operation of non-essential businesses and increase in the number of people working from home in this past year has further compounded this effect. More people are streaming live lectures, sports, news, and video calls via the internet at home today than we have ever seen before. In March 2020, Youtube saw a 2.5x increase in the amount of time people spent streaming live video [1]. Twitch more than doubled their hours of content in three months after the start of the pandemic [1]. There is a huge boom in the video content world, and it does not seem to be slowing down anytime soon.  Internet Service Providers, such as Viasat, are tasked with optimizing  internet connections and tailoring their allocation of resources to fit each unique customer’s needs. With this increase in internet activity, it would be especially beneficial for Viasat to understand what issues arise when customers stream various forms of video.
 
 ## Data Cleaning
