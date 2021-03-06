@@ -4,5 +4,5 @@
     "testsize":0.2,
     "randomstate":125,
     "method":"Random_Forest",
-    "method_parameters":3
+    "method_parameters":100
 }

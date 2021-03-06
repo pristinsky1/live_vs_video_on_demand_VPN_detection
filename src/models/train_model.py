@@ -82,7 +82,7 @@ def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     :param: method_parameters: the parameter used for training.
     '''
     df=pd.read_csv(indir)
-    features_name = ["valid_package_rate","peaks_gap","peaks_number"]
+    features_name = ["valid_package_rate","peaks_gap","peaks_number","max_prom_norm", "peak_0p1Hz_norm", "peak_0p2Hz_norm", "pct_zeros"]
     y = np.array(df["data_label"])
     x = np.array(df[features_name])
     X_train, X_test, y_train, y_test = model_selection.train_test_split(x,y, test_size=testsize, shuffle = True,random_state=randomstate)
@@ -102,7 +102,7 @@ def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     test_pred = clf.predict(X_test)
     test_accuracy = accuracy_score(test_pred, y_test)
     model_report={}
-    model_report["Using Features"]="valid_package_rate, peaks_gap, peaks_number"
+    model_report["Using Features"]="valid_package_rate,peaks_gap,peaks_number,max_prom_norm, peak_0p1Hz_norm, peak_0p2Hz_norm, pct_zeros"
     model_report["Using Classifier"]=method
     model_report["Train Accuracy"]= str(train_accuracy)
     model_report["Valid Accuracy"]= str(test_accuracy)
@@ -120,14 +120,12 @@ def train_model(indir,outdir,testsize,randomstate,method,method_parameters):
     model_report["Validation Set False Positive"]=str(fp)
     model_report["Validation Set False Negative"]=str(fn)
     model_report["Validation Set True Positive"]=str(tp)
-<<<<<<< Updated upstream
-=======
+
     
     #importance = clf.feature_importances_
     # summarize feature importance
     #print(importance)
     
->>>>>>> Stashed changes
     filename = os.path.join(outdir, 'model.joblib')
     pickle.dump(clf, open(filename, 'wb'))
     filename2 = os.path.join(outdir, 'training_report.json')
