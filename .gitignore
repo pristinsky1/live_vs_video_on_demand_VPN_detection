@@ -136,3 +136,4 @@ predictions.csv
 training_report.json
 model.joblib
 features.csv
+EDA.html
