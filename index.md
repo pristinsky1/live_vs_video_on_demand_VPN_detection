@@ -2,6 +2,7 @@
 
 ## Live vs. Video on Demand inside VPN Detection
 ## Overview
+![Livestreaming on Twitch](first.png)
 &ensp; Due to the variety, affordability and convenience of online video streaming, there are more subscribers than ever to video streaming platforms. Moreover, the decreased operation of non-essential businesses and increase in the number of people working from home in this past year has further compounded this effect. More people are streaming live lectures, sports, news, and video calls via the internet at home today than we have ever seen before. 
 
 ![Livestreaming Blooming](intro_pic.png)(https://mashable.com/article/future-of-livestreaming/)
@@ -78,11 +79,23 @@
 - **peak_0.2Hz_norm** - This feature grabs the minimum .2Hz value found within the transformed data in the frequency domain and normalizes it. This spectral feature is calculated by binning the 2->1Packet Sizes into 2 second intervals, and applies Welch’s method to transform the data to the frequency domain before looking at all the values occurring every 0.2Hz to find the minimum.
 
 
-## Model 
-&ensp; Since we are predicting a binary result of whether the file is VOD or live streaming, we explored classifiers including the SVM, KNeighbors classifier, Logistic Regression classifier and Random Forest classifier. Random Forest classifier achieved the highest accuracy of 99 percent, which is nearly 15 percent better than other models. The possible reason why Random Forest Classifier has the highest accuracy is that the more features we train it, the higher the accuracy would be. However, this classifier takes on average five times longer than other three classifiers. Eventually we trained the model on Zoom data and Twitch traffic and achieved the 99 percent test accuracy. Moreover, we noticed that if we included the YouTube data in the training process, the accuracy of the overall model would be lower by 10 percent. This may due to the fact that YouTube used a different algorithm than zoom and twitch which messed up the model.We plan to explore youtube data further in the coming weeks, and hyper tune our classifier to be able to distinguish different live video content. We also hope to explore the differences between live and VOD within the frequency domain to gather more insight. 
+## Model/Results 
+&ensp; Using the features we have extracted, we then fed them through various supervised machine learning models to predict if live video or VoD streaming is occurring within a VPN tunnel. We trained each model with 80% of our data (446 datasets), and tested it with 20% (112 datasets). The data used for training/testing was decided randomly, to ensure a representative sample of platforms and classes (live vs VoD). 
 
-## Results
-- confusion matrix of how our model did
-- accuracy/precision scores
+&ensp; The model that performed the best was the Random Forest Classifier. Random forests is an ensemble learning method for classification that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees. Random decision forests correct for decision trees' habit of overfitting to their training set. Normally, it will outperform the normal decision tree model which is the main reason we used it for our project. Following is the importance of each feature returned by the random forest model. The accuracy of this model is 97%.The confusion matrix can be seen below:
+
+![Confusion Matrix of Model](model.png)
+
+## Discussion
+&ensp; Out of over 100 test data files, only 3 files were inaccurately classified with the wrong class label. The model has high accuracy, precision, recall and F1 scores, proving it to be robust and correct. It is also important to note that although this is the best model, the other models were able to achieve high accuracy scores as well. This shows that the features we chose to extract are very telling of how live video and VoD is delivered to users. We can also see that there are very dramatic differences in the way these two types of video content are sent, helping us achieve creating a strong model that is robust and generalizable. With this information, ISP’s can use our model in conjunction with others to get a better understanding of user streaming patterns and ultimately improve overall experience. 
 
 ## Future Work 
+&ensp; As the project is finished, we are thinking about what further steps we can take to perfect our project, which includes improving the project’s comprehensiveness, effectiveness and ease of use. In the future, we will possibly cover more user scenarios to make the project more comprehensive, such as still image video versus action videos, high resolution video versus, low resolution video. Moreover, we can expand our project beyond video streaming, by exploring use cases like gaming, music streaming, video streaming etc. These added cases can hugely increase the usability and flexibility of our algorithm to reach out for a bigger market and to benefit users of different types. 
+
+&ensp; As we think about these further steps, it is important to keep data ethics and privacy in mind. In the wake of data breaches and privacy concerns, VPNs are more popular today than ever before due to privacy concerns of users [5]. Although it is justifiable for ISP’s to understand user traffic, by being able to identify game and music streams, to optimize connections and tailor services to their customer’s needs, there is a limit. [6] The lengths we take to unravel the decryption procedure by VPN’s could start to make user’s uncomfortable, and must always be considered before we look at user data. 
+
+&ensp; Traditional internet traffic investigations such as studying packet payloads are still very common amongst many companies, which is very ineffective. Due to the increasing amount of personal internet data and the popularization of the VPN, these traditional methods are hindered. Even if the methods work, the efficiency is worse compared to the ML algorithm and the user’s privacy is less protected. Therefore, we support these companies to keep up with the trend to update their back end services and incorporate ML into their algorithms. This will eventually save them time and energy, hence bringing more efficiency to their services as well as higher user satisfaction.
+
+&ensp; In the end, the possible use case for our projects would be focused on companies like ISPs and VPN providers. Firstly, these companies have the ability to collect user data due to the nature of their services. Secondly, they have the pressing need to investigate user’s data, at the same time respect users’ privacy, in order to provide better internet services and ultimately enhance user experience. 
+
+![Netflix Streaming](netflix.png)
