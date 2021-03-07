@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+#new updates
+ori_table
+predict_report
+predictions
+training_report
+model
+features
