@@ -40,9 +40,9 @@ def main(targets):
             data_cfg=json.load(fh)
         predict_model(**data_cfg)
     if 'eda' in targets:
-        convert_jupyter_to_html("notebooks/EDA.ipynb", "EDA.html")
+        convert_jupyter_to_html("notebooks/EDA.ipynb", "notebooks/EDA.html")
     if 'all' in targets:
-        convert_jupyter_to_html("notebooks/EDA.ipynb", "EDA.html")
+        convert_jupyter_to_html("notebooks/EDA.ipynb", "notebooks/EDA.html")
         with open('config/feature-params.json') as fh:
             data_cfg=json.load(fh)
         features_build(**data_cfg)
