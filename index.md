@@ -30,7 +30,7 @@
 - **2 ->1 Pkts**: The number of Packets in the download direction
 - **packet_times**: The time when each packet arrived in milliseconds
 - **packet_sizes**: The size in bytes of the packet excludes link layer headers
-- **packet_dirs**: The directrion where the packet came from. 1 means it is from IP1 (user). 2 means it is from IP2 (server).
+- **packet_dirs**: The direction where the packet came from. 1 means it is from IP1 (user). 2 means it is from IP2 (server).
 
 ## Dataset Overview
 &ensp; We have chosen to generate network data from platforms that offer both live and VoD content, such as Youtube and Twitch, as well as data from platforms such as Netflix, Facebook Live, Radio.com, Amazon Prime, Hulu, and Zoom (live video calls). Through an extensive dataset drawing from multiple providers we were able to create a robust model that can identify when a user is streaming a VoD or a live video. The dataset breakdown is as follows:
