@@ -28,7 +28,7 @@
 - **packet_dirs**: The directrion where the packet came from. 1 means it is from IP1 (user). 2 means it is from IP2 (server).
 
 &ensp; The data we used comes from multiple sources, and the breakdown is as follows:
-![Dataset Platform](Dataset platforms.png)
+![Dataset Platform](dataset.png)
 
 ## Feature Extraction & Analysis
 &ensp; The internet data that we have collected consists of the number of packets and bytes being uploaded and downloaded across a connection. A connection consists of the source and destination IP addresses and ports.With this information, we can potentially find significant features that are key identifiers of internet activity. Using this data, we can look at the flow of packets and bytes sent back and forth over time between the user and destination. Through these findings, we plan to create a machine learning model to predict if a user is streaming live or pre-uploaded video.
