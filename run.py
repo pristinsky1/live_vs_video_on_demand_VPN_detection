@@ -42,6 +42,7 @@ def main(targets):
     if 'eda' in targets:
         convert_jupyter_to_html("notebooks/EDA.ipynb", "EDA.html")
     if 'all' in targets:
+        convert_jupyter_to_html("notebooks/EDA.ipynb", "EDA.html")
         with open('config/feature-params.json') as fh:
             data_cfg=json.load(fh)
         features_build(**data_cfg)
