@@ -84,7 +84,7 @@
 
 &ensp; The model that performed the best was the Random Forest Classifier. Random forests is an ensemble learning method for classification that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees. Random decision forests correct for decision trees' habit of overfitting to their training set. Normally, it will outperform the normal decision tree model which is the main reason we used it for our project. Following is the importance of each feature returned by the random forest model. The accuracy of this model is 97%.The confusion matrix can be seen below:
 
-![Confusion Matrix of Model](model.png=50x50)
+![Confusion Matrix of Model](model.png=20x20)
 
 ## Discussion
 &ensp; Out of over 100 test data files, only 3 files were inaccurately classified with the wrong class label. The model has high accuracy, precision, recall and F1 scores, proving it to be robust and correct. It is also important to note that although this is the best model, the other models were able to achieve high accuracy scores as well. This shows that the features we chose to extract are very telling of how live video and VoD is delivered to users. We can also see that there are very dramatic differences in the way these two types of video content are sent, helping us achieve creating a strong model that is robust and generalizable. With this information, ISP’s can use our model in conjunction with others to get a better understanding of user streaming patterns and ultimately improve overall experience. 
