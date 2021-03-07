@@ -5,7 +5,6 @@ import json
 import pandas as pd
 import numpy as np
 from scipy.signal import find_peaks 
-from src.data.etl import generate_table
 from src.features.build_features import features_build
 from src.models.train_model import train_model
 from src.models.predict_model import predict_model
