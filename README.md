@@ -11,7 +11,7 @@ Note: These instructions assume that the user has access to the DSMLP server to 
 
 1.) **ssh user@dsmlp-login.ucsd.edu** (user refers to your school username). Enter credentials.
 
-2.) **launch-180.sh -G B05_VPN_XRAY -P Always -i apristin99/live_vs_vod_project**
+2.) **launch-180-gid.sh -G 100011655 -P Always -i apristin99/live_vs_vod_project**
 
 3.) **git clone https://github.com/pristinsky1/live_vs_video_on_demand_VPN_detection.git**
 
