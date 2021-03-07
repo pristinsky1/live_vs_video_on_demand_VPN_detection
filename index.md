@@ -10,7 +10,7 @@
 
 
 ## Data Cleaning
-&ensp; When running network-stats to collect data, this is what the dataset looks like with the columns given. The IP's and Port's have been anonymized for this example for privacy reasons.
+&ensp; The internet data that we have collected consists of the number of packets and bytes uploaded and downloaded across a connection. A connection consists of the source and destination IP addresses and ports. Using this data, we can look at the flow of packets and bytes sent back and forth over time between the user and destination.With this information, and lots of exploratory data analysis we were able to find some key identifiers that can help us distinguish what type of video is being played. Below is an example file:
 ![Dataset Snippet](image.png)
 
 - explain the columns 
