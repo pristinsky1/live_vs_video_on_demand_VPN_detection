@@ -1,4 +1,3 @@
-# %pip install plotly==4.11.0
 import numpy as np 
 import os
 import pandas as pd
@@ -9,13 +8,11 @@ from scipy.signal import find_peaks
 from scipy import signal
 
 
-#TODO FILEPATH for the files we want 
-#filepath = '../test'
-#data = os.listdir(filepath)
-
+#TODO FILEPATH for the files we want
+filepath = '../../test/testdata/'
 #grabbing data for no video and video to do EDA on
-twitch_vod = pd.read_csv('maqader-twitch-streaming-1102021-8.csv')
-twitch_live = pd.read_csv('maqader-twitch-live-1112021-5.csv')
+twitch_vod = pd.read_csv(filepath + 'maqader-twitch-streaming-1102021-8.csv')
+twitch_live = pd.read_csv(filepath + 'maqader-twitch-live-1112021-5.csv')
 
 twitch_vod['Time'] = twitch_vod['Time'] - twitch_vod['Time'][0]
 twitch_live['Time'] = twitch_live['Time'] - twitch_live['Time'][0]
