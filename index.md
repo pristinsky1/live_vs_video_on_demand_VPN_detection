@@ -1,8 +1,8 @@
 
 
 ## Live vs. Video on Demand inside VPN Detection
-&ensp; 
-&ensp; 
+&ensp; Created by: Da Gong, Andrey Pristinsky, Mariam Qader, Tianran Qiu, Zishun Jin
+
 ## Overview
 ![Livestreaming on Twitch](first.png)
 &ensp; Due to the variety, affordability and convenience of online video streaming, there are more subscribers than ever to video streaming platforms. Moreover, the decreased operation of non-essential businesses and increase in the number of people working from home in this past year has further compounded this effect. More people are streaming live lectures, sports, news, and video calls via the internet at home today than we have ever seen before. 
