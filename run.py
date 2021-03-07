@@ -9,6 +9,7 @@ from src.data.etl import generate_table
 from src.features.build_features import features_build
 from src.models.train_model import train_model
 from src.models.predict_model import predict_model
+from src.visualization.utils import convert_jupyter_to_html
 import warnings
 warnings.filterwarnings("ignore", message="y_pred contains classes not in y_true")
 
@@ -38,6 +39,9 @@ def main(targets):
         with open('test/config/predict-params.json') as fh:
             data_cfg=json.load(fh)
         predict_model(**data_cfg)
+    if "eda" in targets:
+        # convert_notebook() is inside utils.py
+        convert_jupyter_to_html("notebooks/EDA.ipynb", "EDA.html")
     if 'all' in targets:
         with open('config/feature-params.json') as fh:
             data_cfg=json.load(fh)
