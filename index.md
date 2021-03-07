@@ -13,19 +13,19 @@
 &ensp; The internet data that we have collected consists of the number of packets and bytes uploaded and downloaded across a connection. A connection consists of the source and destination IP addresses and ports. Using this data, we can look at the flow of packets and bytes sent back and forth over time between the user and destination.With this information, and lots of exploratory data analysis we were able to find some key identifiers that can help us distinguish what type of video is being played. Below is an example file:
 ![Dataset Snippet](image.png)
 
-- Time: Timestamp when the data is recorded
-- IP1: IP address of the user
-- Port1:  Port of the user
-- IP2: IP address of the server
-- Port2: Port of the server
-- Proto: IP Protocol number
-- 1 ->2 Bytes: The size in bytes of the packet in the upload direction
-- 2 ->1 Bytes: The size in bytes of the packet in the download direction
-- 1 ->2 Pkts: The number of Packets in the upload direction
-- 2 ->1 Pkts: The number of Packets in the download direction
-- packet_times: The time when each packet arrived in milliseconds
-- packet_sizes: The size in bytes of the packet excludes link layer headers
-- packet_dirs: The directrion where the packet came from. 1 means it is from IP1 (user). 2 means it is from IP2 (server).
+- **Time**: Timestamp when the data is recorded
+- **IP1**: IP address of the user
+- **Port1**:  Port of the user
+- **IP2**: IP address of the server
+- **Port2**: Port of the server
+- **Proto**: IP Protocol number
+- **1 ->2 Bytes**: The size in bytes of the packet in the upload direction
+- **2 ->1 Bytes**: The size in bytes of the packet in the download direction
+- **1 ->2 Pkts**: The number of Packets in the upload direction
+- **2 ->1 Pkts**: The number of Packets in the download direction
+- **packet_times**: The time when each packet arrived in milliseconds
+- **packet_sizes**: The size in bytes of the packet excludes link layer headers
+- **packet_dirs**: The directrion where the packet came from. 1 means it is from IP1 (user). 2 means it is from IP2 (server).
 
 
 
