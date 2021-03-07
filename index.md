@@ -1,6 +1,8 @@
 
 
 ## Live vs. Video on Demand inside VPN Detection
+&ensp; 
+&ensp; 
 ## Overview
 ![Livestreaming on Twitch](first.png)
 &ensp; Due to the variety, affordability and convenience of online video streaming, there are more subscribers than ever to video streaming platforms. Moreover, the decreased operation of non-essential businesses and increase in the number of people working from home in this past year has further compounded this effect. More people are streaming live lectures, sports, news, and video calls via the internet at home today than we have ever seen before. 
@@ -42,8 +44,6 @@
 ![Number of Bytes Downloaded](newplot%20(1).png)
 
 &ensp; The graph above shows a side by side comparison of the number of downloaded bytes (how many bytes the destination IPs, Twitch here, sends back to the Source, aka the user) over a network for a five minute chunk (300 seconds) of Twitch Video on Demand and a Twitch Live Video. As we can see in the graphs above, there are some very prominent differences in the way VOD and Live Video is delivered. First, we can see that the graph for VOD is much more sparse than the one for live video. There is a spike of content delivered nearly exactly ten seconds apart, whereas for video on demand the spikes are very dense and content is delivered nearly every second. We can also see that the scale of bytes for the two videos differ. VOD has over two times as many bytes per spike, whereas live video has smaller spikes but more often.
-
-&ensp; The graph above shows a side by side comparison of the number of downloaded bytes (how many bytes the destination IPs, Twitch here, sends back to the Source, aka the user) over a network for a five minute chunk (300 seconds) of Twitch Video on Demand and a Twitch Live Video. As we can see in the graphs above, there are some very prominent differences in the way VOD and Live Video is delivered. First, we can see that the graph for VOD is much more sparse than the one for live video. There is a spike of content delivered nearly exactly ten seconds apart, whereas for video on demand the spikes are very dense and content is delivered nearly every second. We can also see that the scale of bytes for the two videos differ. VOD has over two times as many bytes per spike, whereas live video has smaller spikes but more often. 
 
 &ensp; To quantify this difference in density between the two types of videos, we can look at the number of peaks present for bytes downloaded within a five minute chunk of video. The graphs below highlight where each spike is, using the mean number of bytes downloaded as a lowerbound. Using this lower bound can help us filter out any noise that can be present when collecting network data at lower magnitudes.
 
