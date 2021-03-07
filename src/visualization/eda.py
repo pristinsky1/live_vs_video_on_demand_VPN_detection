@@ -10,7 +10,7 @@ from scipy import signal
 
 #TODO FILEPATH for the files we want
 filepath = '../../test/testdata/'
-#grabbing data for no video and video to do EDA on
+#grabbing data for streaming and live to do EDA on
 twitch_vod = pd.read_csv(filepath + 'maqader-twitch-streaming-1102021-8.csv')
 twitch_live = pd.read_csv(filepath + 'maqader-twitch-live-1112021-5.csv')
 
