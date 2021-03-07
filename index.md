@@ -84,7 +84,7 @@
 
 &ensp; The model that performed the best was the Random Forest Classifier. Random forests is an ensemble learning method for classification that operates by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean/average prediction (regression) of the individual trees. Random decision forests correct for decision trees' habit of overfitting to their training set. Normally, it will outperform the normal decision tree model which is the main reason we used it for our project. Following is the importance of each feature returned by the random forest model. The accuracy of this model is 97%.The confusion matrix can be seen below:
 
-<img src="https://github.com/pristinsky1/live_vs_video_on_demand_VPN_detection/blob/gh-pages/model.png" width="400" height="400" />
+![](model1.png)
 
 
 ## Discussion
