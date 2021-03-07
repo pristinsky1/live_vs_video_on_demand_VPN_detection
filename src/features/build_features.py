@@ -138,6 +138,8 @@ def features_build(indir,outdir,output):
     :param: output: whether this function output the table as a csv file or not, 2 for predicting, 1 means output, 0 means not
     '''
     entries = os.listdir(indir)
+    if ".ipynb_checkpoints" in entries:
+        entries.remove(".ipynb_checkpoints")
     features_name = ["valid_package_rate","peaks_gap","peaks_number"]
     feat1 = extract_valid_package_rate(entries,indir)
     feat2 = extract_peaks_gap(entries,indir)
