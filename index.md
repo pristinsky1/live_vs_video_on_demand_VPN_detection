@@ -59,11 +59,11 @@
 
 &ensp; As we can see, the peaks for live video are much closer together than those for VoD. Each peak is about 10 seconds apart for VoD, whereas peaks for Live Videos are pretty consistently appearing. To account for this difference, we can draw out a feature that measures the time in seconds for the interval between peaks in a 5 minute chunk of video!
 
-&ensp; We can also look at the data in the frequency domain!
 ![Time series, data binned in 200 ms intervals](image%20(2).png)
 
 &ensp; When looking at the graph above, we can see that this data in the time domain binned at every 200 millisecond intervals looks quite different when comparing video on demand to live. The VOD data appears to be bursts, with way larger spikes than the live data, while the live appears to be more sporadic with the packet sizes coming in rapidly. One of the most interesting things was that we saw that VOD has a lot of packet sizes at zero, while live data has nearly no zeros. This led us to explore a possible feature packet zeros, as shown above the graph with the value counts for pct_zeros. The red horizontal line at the 0.01 threshold indicates that any value below 0.01 will be counted, with the VOD data having a large amount and live having basically zero.
 
+&ensp; We can also look at the data in the frequency domain!
 ![Frequency Transform (Hz), data binned in 200 ms intervals](image%20(3).png)
 
 &ensp; This graph above shows the data for both VOD and live in the frequency domain. This means that we transformed the data, which we used Welch's method to compute. Right away we noticed that the peaks for VOD were way higher than live, as well as the height difference between the peaks and the troughs. From this, we developed a feature max prominence/mean which finds the largest height difference and normalizes it with the average power spectral density value. As well, we also looked into developing two other features, 0.1Hz/mean and 0.2Hz/mean. When zooming in, you can see that at every 0.1Hz and 0.2Hz, there are peaks or troughs which differed in sizes when looking at vod vs live. These Hz values showed enough of a difference between VOD and Live that we decided to find the minimum .1 and .2 Hz values present in each dataset and normalize them to create the potential features visible above the graph, with streaming on average having larger values than live.
