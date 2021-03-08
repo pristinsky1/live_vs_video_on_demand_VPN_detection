@@ -58,8 +58,9 @@
 ![Time of Peak in 5 minute Chunk of Live vs VoD Video](newplot%20(4).png)
 
 &ensp; As we can see above, the peaks for live video are much closer together than those for VoD. Each peak is about 10 seconds apart for VoD, whereas peaks for Live Videos are pretty consistently appearing. To account for this difference, we can draw out a feature that measures the time in seconds for the interval between peaks in a 5 minute chunk of video!
-\\
-\\
+
+&nbsp; &nbsp;
+
 ![Time series, data binned in 200 ms intervals](image%20(2).png)
 
 &ensp; When looking at the graph above, we can see that this data in the time domain binned at every 200 millisecond intervals looks quite different when comparing video on demand to live. The VOD data appears to be bursts, with way larger spikes than the live data, while the live appears to be more sporadic with the packet sizes coming in rapidly. One of the most interesting things was that we saw that VOD has a lot of packet sizes at zero, while live data has nearly no zeros. This led us to explore a possible feature packet zeros, as shown above the graph with the value counts for pct_zeros. The red horizontal line at the 0.01 threshold indicates that any value below 0.01 will be counted, with the VOD data having a large amount and live having basically zero.
