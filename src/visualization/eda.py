@@ -9,7 +9,7 @@ from scipy import signal
 
 
 #TODO FILEPATH for the files we want
-filepath = '../../test/testdata/'
+filepath = '../test/testdata/'
 #grabbing data for streaming and live to do EDA on
 twitch_vod = pd.read_csv(filepath + 'maqader-twitch-streaming-1102021-8.csv')
 twitch_live = pd.read_csv(filepath + 'maqader-twitch-live-1112021-5.csv')
@@ -263,7 +263,7 @@ def fig6():
                                         x0=1, y0=0.01, x1=300,
                                         y1=0.01, line=dict(color='red', width=1)),row=1, col=2)
     fig.update_layout(
-        title='Time series, MB binned in 2 second intervals',
+        title='Time series, data binned in 200 ms intervals',
         xaxis_title="Time (Seconds)",
         yaxis_title="Packet_Sizes",
         font=dict(family="Courier New, monospace",size=16,color="Black"))
@@ -370,7 +370,7 @@ def fig7():
         name='Detected Peaks Live'
     ), row=1, col=2)
     fig.update_layout(
-        title='Frequency transform (Hz) after data binned in 2 second intervals',
+        title='Frequency transform (Hz), data binned in 200 ms intervals',
         xaxis_title="Frequency [Hz]",
         yaxis_title="SQRT Power Spectral Density",
         font=dict(family="Courier New, monospace",size=16,color="Black"))
