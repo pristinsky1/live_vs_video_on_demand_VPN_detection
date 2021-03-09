@@ -158,10 +158,7 @@ def features_build(indir,outdir,output):
     if output == 1:
         tab.to_csv (outdir+'/features.csv', index = False, header=True)
 
-    feat4 = spectral_features(entries,indir)[0]
-    feat5 = spectral_features(entries,indir)[1]
-    feat6 = spectral_features(entries,indir)[2]
-    feat7 = spectral_features(entries,indir)[3]
+    feat4, feat5, feat6, feat7 = spectral_features(entries, indir)
     if output!=2:
         label = []
         for i in entries:
