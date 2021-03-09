@@ -196,7 +196,7 @@ def fig5():
     vpr_live = (len(group_file2)-1)/(group_file2["Time"][len(group_file2)-1]-group_file2["Time"][0])
     
     print('The VOD has a valid packet ' + str(vpr_vod * 100) + '% of the time!')
-    print('The VOD has a valid packet ' + str(vpr_live * 100) + '% of the time!')
+    print('The Live has a valid packet ' + str(vpr_live * 100) + '% of the time!')
     return 
 
 def extended_2to1(df):
